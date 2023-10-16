@@ -102,6 +102,9 @@ def main():
 
         final_agg = agg_repair.sort_values(by='REPAIR AMOUNT', ascending=False).head(5)
 
+        top = df.sort_values(by='REPAIR AMOUNT', ascending=False).head(5)
+
+
 
         # Now, you can perform the sum operation
         # agg = df["REPAIR AMOUNT"].sum()
@@ -169,6 +172,10 @@ def main():
 
         # Show the pie chart
         st.plotly_chart(fig_pie)
+
+        st.markdown('TOP FIVE REPAIR PAYOUTS')
+        st.write(top, unsafe_allow_html=True)
+
         
 
     if view == "New Update":
