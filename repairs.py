@@ -188,7 +188,7 @@ def main():
 
         claim = st.text_input("Claim Number") 
     
-        repairer = st.selectbox("Repairer", ["SIMBA", "SAGOO", "LEAKEYS", "COMBINE", "MOTION", "AUTOEXPRESS", "KHALSA", "JOGINDERS", "C.I.L", "N/A"])
+        repairer = st.selectbox("Repairer", ["SIMBA", "SAGOO", "LEAKEYS", "COMBINE", "MOTION", "AUTOEXPRESS", "KHALSA", "JOGINDERS", "WINDSCREEN", "C.I.L", "N/A"])
     
         assessor = st.selectbox("Assessor", ["EXPRESS", "KEVO", "NOT ASSESSED", "TPPD"])
 
