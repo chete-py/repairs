@@ -239,7 +239,20 @@ def main():
         else:
             # If "All" is selected, show the entire DataFrame
             final_df = df
-    
+
+        selected_option = st.selectbox("Filter by Date:", ["All", "With Date", "Without Date"])
+
+        if selected_option == "All":
+           
+            final_df = df
+        
+        elif selected_option == "With Date":
+            # Filter the DataFrame to include rows with dates
+            final_df = df[df['date_column'].notnull()]
+        
+        elif selected_option == "Without Date":
+            # Filter the DataFrame to include rows without dates (blanks)
+            final_df = df[df['date_column'].isnull()]    
     
         edited_df = st.data_editor(final_df)
     
