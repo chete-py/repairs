@@ -248,11 +248,11 @@ def main():
         
         elif selected_option == "With Date":
             # Filter the DataFrame to include rows with dates
-            final_df = df[df['DATE REPAIR AUTHORISED'].notnull()]
+            final_df = df[df['DATE REPAIR AUTHORISED'].notnull()==selected_option]
         
         elif selected_option == "Without Date":
             # Filter the DataFrame to include rows without dates (blanks)
-            final_df = df[df['DATE REPAIR AUTHORISED'].isnull()]    
+            final_df = df[df['DATE REPAIR AUTHORISED'].isnull()==selected_option]    
     
         edited_df = st.data_editor(final_df)
     
