@@ -162,7 +162,17 @@ def main():
 
         assessor_appointed = json.dumps(st.date_input("Date Assessor Appointed"), default=str)
 
-        report_received = st.text_input("Date Report Received")  
+        # report_received = st.text_input("Date Report Received")
+
+        date_received_options = ["Awaiting", "Not Applicable", "Authorised"]
+        selected_date_option = st.selectbox("Select Report Received Date Option", date_received_options)
+        
+        if selected_date_option == "Awaiting":
+            report_received = "Awaiting"
+        elif selected_date_option == "Not Applicable":
+            report_received = "NA"
+        else:
+            report_received = json.dumps(st.date_input("Date Report Received"), default=str)
 
         outcome = st.selectbox("Claim Outcome", ["REPAIRABLE", "THIRD PARTY PURPOSES", "PENDING", "WRITE-OFF", "BELOW EXCESS", "UNDER INVESTIGATION", "CLAIM DECLINED", "RELEASED"])
 
