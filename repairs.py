@@ -160,17 +160,17 @@ def main():
     
         assessor = st.selectbox("Assessor", ["EXPRESS", "KEVO", "NOT ASSESSED", "TPPD", "T.B.A"])
 
-        assessor_appointed = json.dumps(pd.to_datetime(st.date_input("Date Assessor Appointed").isoformat()))
+        assessor_appointed = json.dumps(st.date_input("Date Assessor Appointed"), default=str)
 
         report_received = st.text_input("Date Report Received")  
 
         outcome = st.selectbox("Claim Outcome", ["REPAIRABLE", "THIRD PARTY PURPOSES", "PENDING", "WRITE-OFF", "BELOW EXCESS", "UNDER INVESTIGATION", "CLAIM DECLINED", "RELEASED"])
 
-        date_authorized = json.dumps(pd.to_datetime(st.date_input("Date Repair Authorized").isoformat()))
+        date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
 
         repair_amount = st.text_input("Repair Amount") 
     
-        release_date = json.dumps(pd.to_datetime(st.date_input("Release Date").isoformat()))
+        release_date = json.dumps(st.date_input("Release Date"), default=str)
 
        
       
