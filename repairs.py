@@ -159,17 +159,17 @@ def main():
     
         assessor = st.selectbox("Assessor", ["EXPRESS", "KEVO", "NOT ASSESSED", "TPPD", "T.B.A"])
 
-        assessor_appointed = st.date_input("Date Assessor Appointed")  
+        assessor_appointed = pd.to_datetime(st.date_input("Date Assessor Appointed")) 
 
         report_received = st.text_input("Date Report Received")  
 
         outcome = st.selectbox("Claim Outcome", ["REPAIRABLE", "THIRD PARTY PURPOSES", "PENDING", "WRITE-OFF", "BELOW EXCESS", "UNDER INVESTIGATION", "CLAIM DECLINED", "RELEASED"])
 
-        date_authorized = st.date_input("Date Repair Authorized")
+        date_authorized = pd.to_datetime(st.date_input("Date Repair Authorized"))
 
         repair_amount = st.text_input("Repair Amount") 
     
-        release_date = st.date_input("Release Date")  
+        release_date = pd.to_datetime(st.date_input("Release Date"))
 
        
       
