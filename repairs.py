@@ -168,16 +168,31 @@ def main():
 
         date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
 
-        repair_amount = st.text_input("Repair Amount") 
-    
-        release_date = json.dumps(st.date_input("Release Date"), default=str)
+        date_auth_options = ["Awaiting", "Not Applicable", "Authorised"]
+        selected_date_option = st.selectbox("Select Date Option", date_auth_options)
+        
+        if selected_date_option == "Awaiting":
+            date_authorized = "Awaiting"
+        elif selected_date_option == "Not Applicable":
+            date_authorized = "NA"
+        else:
+            date_authorized = json.dumps(st.date_input("Release Authorized"), default=str)
 
-       
+        # repair_amount = st.text_input("Repair Amount") 
+    
+        # release_date = json.dumps(st.date_input("Release Date"), default=str)
+
+        date_options = ["Awaiting", "Not Applicable", "Released"]
+        selected_date_option = st.selectbox("Select Date Option", date_options)
+        
+        if selected_date_option == "Awaiting":
+            release_date = "Awaiting"
+        elif selected_date_option == "Not Applicable":
+            release_date = "NA"
+        else:
+            release_date = json.dumps(st.date_input("Release Date"), default=str)
+     
       
-
-            
-    
-    
             # Check if the user has entered data and submitted the form
         if st.button("Submit"):
             if claim_exists(claim):
