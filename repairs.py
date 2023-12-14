@@ -178,7 +178,7 @@ def main():
         elif selected_date_option == "Not Applicable":
             date_value = "NA"
         else:
-            date_value = str(st.date_input("Select Date"))
+            date_value = st.date_input("Select Date")
 
             
     
@@ -189,7 +189,7 @@ def main():
                 st.warning("Claim number already exists in the spreadsheet. Please choose another.")
             else:            
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [reg, claim, repairer, assessor, assessor_appointed, report_received, outcome, date_authorized, repair_amount, date_value]
+                new_data = [reg, claim, repairer, assessor, assessor_appointed, report_received, outcome, date_authorized, repair_amount, str(date_value)]
         
                 # Append the new row of data to the worksheet
                 worksheet.append_row(new_data) 
