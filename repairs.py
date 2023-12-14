@@ -183,7 +183,7 @@ def main():
                 st.warning("Claim number already exists in the spreadsheet. Please choose another.")
             else:            
                 # Create a new row of data to add to the Google Sheets spreadsheet
-                new_data = [reg, claim, repairer, assessor, assessor_appointed, str(report_received), outcome, str(date_authorized), repair_amount, str(date_value)]
+                new_data = [reg, claim, repairer, assessor, assessor_appointed, str(report_received), outcome, str(date_authorized), repair_amount]
         
                 # Append the new row of data to the worksheet
                 worksheet.append_row(new_data) 
