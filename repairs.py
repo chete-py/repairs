@@ -188,7 +188,7 @@ def main():
         else:
             date_authorized = json.dumps(st.date_input("Release Authorized"), default=str)
 
-        # repair_amount = st.text_input("Repair Amount") 
+        repair_amount = st.text_input("Repair Amount") 
     
         # release_date = json.dumps(st.date_input("Release Date"), default=str)
 
