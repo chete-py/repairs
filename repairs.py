@@ -21,6 +21,10 @@ url = "https://docs.google.com/spreadsheets/d/1tv3F0svnneK95tHbAA4l6OotcrD87A6bW
 # Open the Google Sheets spreadsheet
 worksheet = gc.open_by_url(url).worksheet("repairs")
 
+ def claim_exists(claim_number):
+        # Check if claim number already exists in the spreadsheet
+        existing_claim_numbers = worksheet.col_values(2) 
+        return claim_number in existing_claim_numbers     
 
     # Add a sidebar
 st.sidebar.image('corplogo.PNG', use_column_width=True)
@@ -138,10 +142,7 @@ def main():
         st.markdown('TOP FIVE REPAIR PAYOUTS')
         st.write(top, unsafe_allow_html=True)
 
-   def claim_exists(claim_number):
-        # Check if claim number already exists in the spreadsheet
-        existing_claim_numbers = worksheet.col_values(2) 
-        return claim_number in existing_claim_numbers     
+  
 
     if view == "New Update":
             # Add the dashboard elements here
