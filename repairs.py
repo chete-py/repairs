@@ -169,7 +169,7 @@ def main():
         date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
 
         date_auth_options = ["Awaiting", "Not Applicable", "Authorised"]
-        selected_date_option = st.selectbox("Select Date Option", date_auth_options)
+        selected_date_option = st.selectbox("Select Authorization Date Option", date_auth_options)
         
         if selected_date_option == "Awaiting":
             date_authorized = "Awaiting"
@@ -183,7 +183,7 @@ def main():
         # release_date = json.dumps(st.date_input("Release Date"), default=str)
 
         date_options = ["Awaiting", "Not Applicable", "Released"]
-        selected_date_option = st.selectbox("Select Date Option", date_options)
+        selected_date_option = st.selectbox("Select Release Date Option", date_options)
         
         if selected_date_option == "Awaiting":
             release_date = "Awaiting"
