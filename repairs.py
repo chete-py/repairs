@@ -178,7 +178,8 @@ def main():
         elif selected_date_option == "Not Applicable":
             date_value = "NA"
         else:
-            date_value = st.date_input("Select Date")
+            date_value = str(st.date_input("Select Date"))
+
             
     
     
