@@ -172,13 +172,7 @@ def main():
 
         date_options = ["Awaiting", "Not Applicable", "Released"]
         selected_date_option = st.selectbox("Select Date Option", date_options)
-        
-        if selected_date_option == "Awaiting":
-            date_value = "Awaiting"
-        elif selected_date_option == "Not Applicable":
-            date_value = "NA"
-        else:
-            date_value = st.date_input("Select Date")
+      
 
             
     
