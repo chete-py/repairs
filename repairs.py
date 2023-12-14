@@ -6,44 +6,6 @@ from google.oauth2 import service_account
 import plotly.graph_objects as go
 import base64
 
-
-# def check_password():
-#     """Returns `True` if the user had a correct password."""
-
-#     def password_entered():
-#         """Checks whether a password entered by the user is correct."""
-#         if (
-#             st.session_state["username"] in st.secrets["passwords"]
-#             and st.session_state["password"]
-#             == st.secrets["passwords"][st.session_state["username"]]
-#         ):
-#             st.session_state["password_correct"] = True
-#             del st.session_state["password"]  # don't store username + password
-#             del st.session_state["username"]
-#         else:
-#             st.session_state["password_correct"] = False
-
-#     if "password_correct" not in st.session_state:
-#         # First run, show inputs for username + password.
-#         st.text_input("Username", on_change=password_entered, key="username")
-#         st.text_input(
-#             "Password", type="password", on_change=password_entered, key="password"
-#         )
-#         return False
-#     elif not st.session_state["password_correct"]:
-#         # Password not correct, show input + error.
-#         st.text_input("Username", on_change=password_entered, key="username")
-#         st.text_input(
-#             "Password", type="password", on_change=password_entered, key="password"
-#         )
-#         st.error("Invalid Credentials")
-#         return False
-#     else:
-#         # Password correct.
-#         return True
-
-# if check_password():
-
 # Define your Google Sheets credentials JSON file (replace with your own)
 credentials_path = 'atlantean-app-402209-ff6eeccdec5b.json'
 
@@ -176,7 +138,10 @@ def main():
         st.markdown('TOP FIVE REPAIR PAYOUTS')
         st.write(top, unsafe_allow_html=True)
 
-        
+   def claim_exists(claim_number):
+        # Check if claim number already exists in the spreadsheet
+        existing_claim_numbers = worksheet.col_values(2) 
+        return claim_number in existing_claim_numbers     
 
     if view == "New Update":
             # Add the dashboard elements here
@@ -208,15 +173,17 @@ def main():
     
             # Check if the user has entered data and submitted the form
         if st.button("Submit"):
-            
-            # Create a new row of data to add to the Google Sheets spreadsheet
-            new_data = [reg, claim, repairer, assessor, assessor_appointed, report_received, outcome, date_authorized, repair_amount, release_date]
-    
-            # Append the new row of data to the worksheet
-            worksheet.append_row(new_data) 
-    
-            st.success("Data submitted successfully!")
-    
+            if claim_exists(claim):
+                st.warning("Claim number already exists in the spreadsheet. Please choose another.")
+            else:            
+                # Create a new row of data to add to the Google Sheets spreadsheet
+                new_data = [reg, claim, repairer, assessor, assessor_appointed, report_received, outcome, date_authorized, repair_amount, release_date]
+        
+                # Append the new row of data to the worksheet
+                worksheet.append_row(new_data) 
+        
+                st.success("Data submitted successfully!")
+        
     
     elif view == "Records":
             # Show the saved DataFrame here
