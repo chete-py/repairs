@@ -176,7 +176,7 @@ def main():
 
         outcome = st.selectbox("Claim Outcome", ["REPAIRABLE", "THIRD PARTY PURPOSES", "PENDING", "WRITE-OFF", "BELOW EXCESS", "UNDER INVESTIGATION", "CLAIM DECLINED", "RELEASED"])
 
-        date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
+        # date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
 
         date_auth_options = ["Awaiting", "Not Applicable", "Authorised"]
         selected_date_option = st.selectbox("Select Authorization Date Option", date_auth_options)
@@ -186,7 +186,7 @@ def main():
         elif selected_date_option == "Not Applicable":
             date_authorized = "NA"
         else:
-            date_authorized = json.dumps(st.date_input("Release Authorized"), default=str)
+            date_authorized = json.dumps(st.date_input("Date Repair Authorized"), default=str)
 
         repair_amount = st.text_input("Repair Amount") 
     
