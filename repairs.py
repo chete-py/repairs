@@ -164,7 +164,7 @@ def main():
 
         # report_received = st.text_input("Date Report Received")
 
-        date_received_options = ["Awaiting", "Not Applicable", "Authorised"]
+        date_received_options = ["Awaiting", "Not Applicable", "Received"]
         selected_date_option = st.selectbox("Select Report Received Date Option", date_received_options)
         
         if selected_date_option == "Awaiting":
