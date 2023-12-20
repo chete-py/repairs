@@ -8,20 +8,20 @@ from google.oauth2 import service_account
 import plotly.graph_objects as go
 import base64
 
-# Define your Google Sheets credentials JSON file (replace with your own)
-credentials_path = 'atlantean-app-402209-ff6eeccdec5b.json'
-
+ # Define your Google Sheets credentials JSON file (replace with your own)
+credentials_path = 'legal-corporate-019720d30928.json'
+        
 # Authenticate with Google Sheets using the credentials
 credentials = service_account.Credentials.from_service_account_file(credentials_path, scopes=['https://spreadsheets.google.com/feeds'])
-
+        
 # Authenticate with Google Sheets using gspread
 gc = gspread.authorize(credentials)
-
+        
 # Your Google Sheets URL
-url = "https://docs.google.com/spreadsheets/d/1tv3F0svnneK95tHbAA4l6OotcrD87A6bWXXlLo2lLxg/edit#gid=0"
-
+url = "https://docs.google.com/spreadsheets/d/1OGtNQnciAJLJiOmKlfvuZWar0zFwCjA77GwvBe5BF9Q/edit#gid=0"
+        
 # Open the Google Sheets spreadsheet
-worksheet = gc.open_by_url(url).worksheet("repairs")
+worksheet = gc.open_by_url(url).worksheet("legal")
 
 def claim_exists(claim_number):
     # Check if claim number already exists in the spreadsheet
