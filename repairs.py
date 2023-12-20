@@ -59,8 +59,8 @@ def main():
         count_garage = df[df["REPAIRER"] == freq_garage].shape[0]
 
     
-        freq_assessor = df['ASSESSOR '].mode().values[0]
-        count_assessor = df[df["ASSESSOR "] == freq_assessor].shape[0]
+        freq_assessor = df['ASSESSOR'].mode().values[0]
+        count_assessor = df[df["ASSESSOR"] == freq_assessor].shape[0]
 
         
         # Remove non-numeric characters and convert the column to numeric
