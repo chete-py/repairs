@@ -39,7 +39,7 @@ def main():
 
     if view == "Dashboard":
         st.subheader("REPAIRS TRACKER")
-        st.image(jbnp.png)
+        st.image('jbnp.png')
      
     #     # Read data from the Google Sheets worksheet
     #     data = worksheet.get_all_values()
