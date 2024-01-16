@@ -35,7 +35,7 @@ st.sidebar.markdown("Navigation Pane")
 # Main Streamlit app code
 def main():
 
-    view = st.sidebar.radio("Select", ["Dashboard"])
+    view = st.sidebar.radio("Select", ["Dashboard", "New Update", "Records"])
 
     if view == "Dashboard":
         st.subheader("REPAIRS TRACKER")
